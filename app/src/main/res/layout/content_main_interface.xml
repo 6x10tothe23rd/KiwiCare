@@ -4,178 +4,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="org.conner4real.kiwicare.MainInterface"
+    tools:layout_editor_absoluteX="8dp"
+    tools:layout_editor_absoluteY="8dp"
     tools:showIn="@layout/app_bar_main_interface">
 
-    <ScrollView
-        android:id="@+id/SettingsView"
+
+    <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:visibility="visible"
-        app:layout_constraintLeft_toLeftOf="parent"
+        tools:layout_editor_absoluteY="8dp"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintLeft_toLeftOf="parent">
 
-        <LinearLayout
+        <fragment
+            android:id="@+id/fragment"
+            android:name="org.conner4real.kiwicare.SettingsFragment"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_constraintBottom_creator="1"
+            tools:layout_constraintLeft_creator="1"
+            tools:layout_constraintRight_creator="1"
+            tools:layout_constraintTop_creator="1" />
+    </FrameLayout>
 
-            <EditText
-                android:id="@+id/infoAge"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Age"
-                android:inputType="number"
-                tools:ignore="HardcodedText"
-                tools:layout_editor_absoluteX="0dp"
-                tools:layout_editor_absoluteY="0dp" />
-
-            <RadioGroup
-                android:id="@+id/infoSex"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/labelSex"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Sex"
-                    tools:ignore="HardcodedText" />
-
-                <RadioButton
-                    android:id="@+id/male"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Male"
-                    tools:ignore="HardcodedText" />
-
-                <RadioButton
-                    android:id="@+id/female"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Female"
-                    tools:ignore="HardcodedText" />
-
-            </RadioGroup>
-
-            <EditText
-                android:id="@+id/infoWeight"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:ems="10"
-                android:hint="Weight (lbs)"
-                android:inputType="numberDecimal"
-                tools:ignore="HardcodedText" />
-
-            <RadioGroup
-                android:id="@+id/infoHistoryHeart"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:checkedButton="@+id/noneHeart">
-
-                <TextView
-                    android:id="@+id/labelHistoryHeart"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Family History of Heart Disease"
-                    tools:ignore="HardcodedText" />
-
-                <RadioButton
-                    android:id="@+id/siblingsHeart"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Siblings"
-                    tools:ignore="HardcodedText" />
-
-                <RadioButton
-                    android:id="@+id/parentsHeart"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Parents"
-                    tools:ignore="HardcodedText" />
-
-                <RadioButton
-                    android:id="@+id/grandparentsHeart"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Grandparents"
-                    tools:ignore="HardcodedText" />
-
-                <RadioButton
-                    android:id="@+id/noneHeart"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:checked="false"
-                    android:text="None"
-                    tools:ignore="HardcodedText" />
-            </RadioGroup>
-
-            <RadioGroup
-                android:id="@+id/infoHistoryMental"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:checkedButton="@+id/noneMental">
-
-                <TextView
-                    android:id="@+id/labelHistoryMental"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Family History of Mental Health Disorders"
-                    tools:ignore="HardcodedText" />
-
-                <RadioButton
-                    android:id="@+id/siblingsMental"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Siblings"
-                    tools:ignore="HardcodedText" />
-
-                <RadioButton
-                    android:id="@+id/parentsMental"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Parents"
-                    tools:ignore="HardcodedText" />
-
-                <RadioButton
-                    android:id="@+id/grandparentsMental"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Grandparents"
-                    tools:ignore="HardcodedText" />
-
-                <RadioButton
-                    android:id="@+id/noneMental"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:checked="false"
-                    android:text="None"
-                    tools:ignore="HardcodedText" />
-            </RadioGroup>
-
-        </LinearLayout>
-    </ScrollView>
 
 </android.support.constraint.ConstraintLayout>
