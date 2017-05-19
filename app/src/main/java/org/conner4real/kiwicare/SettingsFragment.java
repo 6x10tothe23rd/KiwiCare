@@ -68,6 +68,30 @@ public class SettingsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_settings, container, false);
         ButterKnife.bind(this, view);
 
+        //Make sure views agree with settings
+        //TODO: Doesn't work
+        int sex = prefs.getInt("infoSex", -1);
+        int age = prefs.getInt("infoAge", -1);
+        float weight = prefs.getFloat("infoWeight", -1);
+        int heartHistory = prefs.getInt("infoHeart", -1);
+        int mentalHistory = prefs.getInt("infoMental", -1);
+
+        if(sex != -1){
+            infoSex.check(sex);
+        }
+        if(age != -1){
+            infoAge.setText(String.valueOf(age));
+        }
+        if(weight != -1){
+            infoWeight.setText(String.valueOf(weight));
+        }
+        if(heartHistory != -1){
+            infoHeart.check(heartHistory);
+        }
+        if(mentalHistory != -1){
+            infoMental.check(mentalHistory);
+        }
+
         //Update settings to reflect user input
         infoSex.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
