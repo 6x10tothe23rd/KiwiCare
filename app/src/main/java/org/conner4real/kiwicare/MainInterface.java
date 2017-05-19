@@ -1,5 +1,8 @@
 package org.conner4real.kiwicare;
 
+import android.app.Fragment;
+import android.app.FragmentTransaction;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -14,10 +17,18 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.List;
+
 import butterknife.BindView;
+import layout.StartFragment;
 
 public class MainInterface extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, SettingsFragment.OnFragmentInteractionListener {
+        implements NavigationView.OnNavigationItemSelectedListener,
+        SettingsFragment.OnFragmentInteractionListener,
+        StartFragment.OnFragmentInteractionListener {
+
+    SharedPreferences prefs = null;
+    NavigationView navigationView = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +52,26 @@ public class MainInterface extends AppCompatActivity
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        prefs = getSharedPreferences("org.conner4real.kiwicare", MODE_PRIVATE);
+
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if (prefs.getBoolean("firstrun", true)) {
+            navigationView.getMenu().getItem(1).setChecked(true);
+            onNavigationItemSelected(navigationView.getMenu().getItem(1));
+
+            prefs.edit().putBoolean("firstrun", false).commit();
+        }
+        else {
+            navigationView.getMenu().getItem(0).setChecked(true);
+            onNavigationItemSelected(navigationView.getMenu().getItem(0));
+        }
     }
 
     @Override
@@ -64,9 +93,6 @@ public class MainInterface extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
@@ -83,8 +109,24 @@ public class MainInterface extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
+        View fragContainer = findViewById(R.id.contentFragContainer);
+        android.support.v4.app.FragmentTransaction tr = getSupportFragmentManager().beginTransaction();
+
         if (id == R.id.nav_my_info) {
-            // Handle the my info action
+            SettingsFragment frag = new SettingsFragment();
+
+            tr.replace(R.id.contentFragContainer, frag);
+            tr.addToBackStack(null);
+
+            tr.commit();
+        }
+        if (id == R.id.nav_start) {
+            StartFragment frag = new StartFragment();
+
+            tr.replace(R.id.contentFragContainer, frag);
+            tr.addToBackStack(null);
+
+            tr.commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
