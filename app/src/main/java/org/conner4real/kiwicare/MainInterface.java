@@ -22,6 +22,8 @@ import java.util.List;
 import butterknife.BindView;
 import layout.StartFragment;
 
+import static java.security.AccessController.getContext;
+
 public class MainInterface extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
         SettingsFragment.OnFragmentInteractionListener,
