@@ -111,8 +111,6 @@ public class MainInterface extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        View fragContainer = findViewById(R.id.contentFragContainer);
-
         android.support.v4.app.FragmentTransaction tr = getSupportFragmentManager().beginTransaction();
 
         if (id == R.id.nav_my_info) {
