@@ -1,7 +1,5 @@
 package org.conner4real.kiwicare;
 
-import android.app.Fragment;
-import android.app.FragmentTransaction;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
@@ -17,17 +15,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import java.util.List;
-
-import butterknife.BindView;
-import layout.StartFragment;
-
-import static java.security.AccessController.getContext;
-
 public class MainInterface extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
         SettingsFragment.OnFragmentInteractionListener,
-        StartFragment.OnFragmentInteractionListener {
+        StartFragment.OnFragmentInteractionListener,
+        NutritionFragment.OnFragmentInteractionListener {
 
     SharedPreferences prefs = null;
     NavigationView navigationView = null;
@@ -123,6 +115,14 @@ public class MainInterface extends AppCompatActivity
         }
         if (id == R.id.nav_start) {
             StartFragment frag = new StartFragment();
+
+            tr.replace(R.id.contentFragContainer, frag);
+            tr.addToBackStack(null);
+
+            tr.commit();
+        }
+        if (id == R.id.nav_nutrition) {
+            NutritionFragment frag = new NutritionFragment();
 
             tr.replace(R.id.contentFragContainer, frag);
             tr.addToBackStack(null);

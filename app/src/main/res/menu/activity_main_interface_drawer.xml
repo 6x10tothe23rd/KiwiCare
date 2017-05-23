@@ -12,6 +12,11 @@
             android:checkable="false"
             android:icon="@drawable/ic_menu_manage"
             android:title="My Info" />
+        <item
+            android:id="@+id/nav_nutrition"
+            android:checkable="false"
+            android:icon="@mipmap/ic_bars"
+            android:title="Nutrition" />
     </group>
 
 </menu>
