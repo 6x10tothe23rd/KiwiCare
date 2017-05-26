@@ -5,18 +5,23 @@
         <item
             android:id="@+id/nav_start"
             android:checkable="false"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@mipmap/ic_startpage"
             android:title="Start Page" />
-        <item
-            android:id="@+id/nav_my_info"
-            android:checkable="false"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="My Info" />
         <item
             android:id="@+id/nav_nutrition"
             android:checkable="false"
             android:icon="@mipmap/ic_bars"
             android:title="Nutrition" />
+        <item
+            android:id="@+id/nav_exercise"
+            android:checkable="false"
+            android:icon="@mipmap/ic_exercise"
+            android:title="Exercise" />
+        <item
+            android:id="@+id/nav_my_info"
+            android:checkable="false"
+            android:icon="@mipmap/ic_myinfo"
+            android:title="My Info" />
     </group>
 
 </menu>

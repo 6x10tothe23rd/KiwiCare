@@ -19,7 +19,8 @@ public class MainInterface extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
         SettingsFragment.OnFragmentInteractionListener,
         StartFragment.OnFragmentInteractionListener,
-        NutritionFragment.OnFragmentInteractionListener {
+        NutritionFragment.OnFragmentInteractionListener,
+        ExerciseFragment.OnFragmentInteractionListener {
 
     SharedPreferences prefs = null;
     NavigationView navigationView = null;
@@ -57,13 +58,11 @@ public class MainInterface extends AppCompatActivity
         super.onResume();
 
         if (prefs.getBoolean("firstrun", true)) {
-            navigationView.getMenu().getItem(1).setChecked(true);
             onNavigationItemSelected(navigationView.getMenu().getItem(1));
 
             prefs.edit().putBoolean("firstrun", false).commit();
         }
         else {
-            navigationView.getMenu().getItem(0).setChecked(true);
             onNavigationItemSelected(navigationView.getMenu().getItem(0));
         }
     }
@@ -123,6 +122,14 @@ public class MainInterface extends AppCompatActivity
         }
         if (id == R.id.nav_nutrition) {
             NutritionFragment frag = new NutritionFragment();
+
+            tr.replace(R.id.contentFragContainer, frag);
+            tr.addToBackStack(null);
+
+            tr.commit();
+        }
+        if (id == R.id.nav_exercise) {
+            ExerciseFragment frag = new ExerciseFragment();
 
             tr.replace(R.id.contentFragContainer, frag);
             tr.addToBackStack(null);
