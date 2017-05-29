@@ -63,7 +63,7 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginStart="8dp"
-                android:text="Tip of the Day: [Placeholder tip]"
+                android:text="Tip of the Day: Try snacking on some almonds if you're hungry in between meals. They're low-calorie and very nutritious."
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textSize="18sp"
