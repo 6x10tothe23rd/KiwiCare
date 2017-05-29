@@ -19,7 +19,5 @@ public class ExerciseRatings {
         return m_cardio;
     }
 
-    public double get_endurance() {
-        return m_endurance;
-    }
+    public double get_endurance() { return m_endurance; }
 }
