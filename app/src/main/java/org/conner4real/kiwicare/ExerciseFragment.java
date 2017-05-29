@@ -33,7 +33,7 @@ public class ExerciseFragment extends Fragment {
     ExerciseRatings situpRatings = new ExerciseRatings(1, 0.1, 0.25);
     String runningURL = "http://www.fitnessmagazine.com/workout/running/running-101-a-beginners-guide/";
     ExerciseRatings runningRatings = new ExerciseRatings(0.1, 1, 0.75);
-    String lungeURL = "";
+    String lungeURL = "http://www.shape.com/fitness/workouts/know-your-basics-how-do-lunge";
     ExerciseRatings lungeRatings = new ExerciseRatings(0.5, 0.1, 0);
 
     public ExerciseFragment() {

@@ -18,6 +18,11 @@
             android:icon="@mipmap/ic_exercise"
             android:title="Exercise" />
         <item
+            android:id="@+id/nav_diet"
+            android:checkable="false"
+            android:icon="@mipmap/ic_diet"
+            android:title="Diet" />
+        <item
             android:id="@+id/nav_my_info"
             android:checkable="false"
             android:icon="@mipmap/ic_myinfo"

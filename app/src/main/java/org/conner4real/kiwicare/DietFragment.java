@@ -8,6 +8,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 
 public class DietFragment extends Fragment {
 
@@ -36,6 +42,8 @@ public class DietFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_diet, container, false);
+        ButterKnife.bind(this, view);
+
         return view;
     }
 

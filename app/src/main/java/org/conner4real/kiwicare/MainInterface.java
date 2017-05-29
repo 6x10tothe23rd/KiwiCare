@@ -20,7 +20,8 @@ public class MainInterface extends AppCompatActivity
         SettingsFragment.OnFragmentInteractionListener,
         StartFragment.OnFragmentInteractionListener,
         NutritionFragment.OnFragmentInteractionListener,
-        ExerciseFragment.OnFragmentInteractionListener {
+        ExerciseFragment.OnFragmentInteractionListener,
+        DietFragment.OnFragmentInteractionListener {
 
     SharedPreferences prefs = null;
     NavigationView navigationView = null;
@@ -130,6 +131,14 @@ public class MainInterface extends AppCompatActivity
         }
         if (id == R.id.nav_exercise) {
             ExerciseFragment frag = new ExerciseFragment();
+
+            tr.replace(R.id.contentFragContainer, frag);
+            tr.addToBackStack(null);
+
+            tr.commit();
+        }
+        if (id == R.id.nav_diet) {
+            DietFragment frag = new DietFragment();
 
             tr.replace(R.id.contentFragContainer, frag);
             tr.addToBackStack(null);
